@@ -1,0 +1,108 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Carrusel: contenedor */
+.carousel {
+    display: flex; /* Asegura que los items se alineen en fila */
+    overflow: hidden; /* Para mostrar solo una imagen a la vez */
+    transition: transform 0.5s ease-in-out; /* Transición suave */
+}
+
+.carousel-item {
+    flex: 0 0 100%; /* Cada item ocupa el 100% del ancho */
+    height: 500px;
+}
+
+.carousel-item img {
+    object-fit: cover; /* Mantiene la relación de aspecto */
+    height: 100%;
+}
+
+/* Overlay para el carrusel */
+.carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro con transparencia */
+    z-index: 1;
+}
+
+.carousel-caption h5 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: white;
+    z-index: 2;
+}
+
+.carousel-caption p {
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: white;
+    z-index: 2;
+}
+
+/* Hover en las tarjetas */
+.card {
+    border: none;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+footer {
+    background-color: #212529;
+}
+
+footer p {
+    margin-bottom: 0;
+}
+
+/* Diseño responsivo */
+@media (max-width: 768px) {
+    .carousel-caption h5 {
+        font-size: 2.5rem;
+    }
+
+    .carousel-caption p {
+        font-size: 1.1rem;
+    }
+}
+
+/* Contenedor de la imagen con overlay */
+.card-img-container {
+    position: relative;
+}
+
+/* Overlay transparente */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.1); /* Fondo negro transparente */
+    z-index: 1;
+    transition: background-color 0.3s ease;
+}
+
+/* Efecto al pasar el mouse sobre la tarjeta */
+.card:hover .overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Cambio de la opacidad en el hover */
+}
+
+/* Asegurarse de que el contenido dentro de la tarjeta quede encima del overlay */
+.card-body {
+    position: relative;
+    z-index: 2;
+}
+
+
+
