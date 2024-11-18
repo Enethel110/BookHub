@@ -17,14 +17,14 @@ class LibroController extends Controller
         if ($search) {
             $libros = Libro::where('titulo', 'like', '%' . $search . '%')
                 ->orWhere('autor', 'like', '%' . $search . '%')
-                ->paginate(9);
+                ->paginate(12);
         } else {
-            $libros = Libro::paginate(9);
+            $libros = Libro::paginate(12);
         }
     
        
-    
-        return view('dashboard', compact('libros'));
+        $librosArray = $libros->items();
+        return view('dashboard', compact('libros', 'librosArray'));
     }
     
 
@@ -67,9 +67,8 @@ class LibroController extends Controller
      */
     public function edit(Libro $libro)
     {
-        return view('libros.edit', compact('libro'));
+        return response()->json($libro);
     }
-
     /**
      * Update the specified resource in storage.
      */
