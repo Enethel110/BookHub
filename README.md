@@ -73,3 +73,20 @@ Para poder ejecutar este proyecto correctamente, necesitarás tener instaladas l
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Página Home
+![Página Home](public/img/1.png)
+
+## Register
+![Register](public/img/2.png)
+
+## Login
+![Login](public/img/3.png)
+
+## Dashboard de libros
+![Dashboard de libros](public/img/4.png)
+
+## Libros
+![Libros](public/img/5.png)
+
+## Tabla resumen de libros
+![Tabla resumen de libros](public/img/6.png)
