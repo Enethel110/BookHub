@@ -1,6 +1,6 @@
 # BookHub: Sistema de Biblioteca con Jetstream
 
-**BookHub** es un proyecto desarrollado con **Laravel Jetstream** que implementa un sistema completo de gestión de biblioteca. Este sistema permite la administración de libros, la autenticación de usuarios y una variedad de funcionalidades para gestionar los libros disponibles y prestados.
+**BookHub** es un proyecto desarrollado con **Laravel Jetstream** que implementa un sistema  de gestión de una biblioteca. Este sistema permite la administración de libros, la autenticación de usuarios y una variedad de funcionalidades para gestionar los libros disponibles y prestados.
 
 ## Características
 
@@ -22,7 +22,7 @@
 - **Laravel Jetstream:** Framework para el desarrollo de aplicaciones web.
 - **PHP:** Lenguaje principal del backend.
 - **MySQL:** Base de datos para almacenar los libros y la información de los usuarios.
-- **Tailwind CSS:** Para los estilos y la interfaz de usuario.
+- **Tailwind y Bootstrap CSS:** Para los estilos y la interfaz de usuario.
 
 ## Requisitos
 
