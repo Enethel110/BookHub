@@ -8,83 +8,77 @@ use Illuminate\Http\Request;
 class LibroController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Mostrar los recursos y filtrado por titulo y autor de los libros
+     * con paguinacion de 12 libros
      */
     public function index(Request $request)
     {
         $search = $request->input('search');
-    
+        // Buscar libros por título o autor
         if ($search) {
             $libros = Libro::where('titulo', 'like', '%' . $search . '%')
                 ->orWhere('autor', 'like', '%' . $search . '%')
                 ->paginate(12);
         } else {
+            // Mostrar todos los libros con paginación
             $libros = Libro::paginate(12);
         }
-    
-       
+
+
         $librosArray = $libros->items();
         return view('dashboard', compact('libros', 'librosArray'));
     }
-    
-
-    
-    
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        return view('libros.create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
+     * Almacenar un nuevo libro en la DB.
      */
     public function store(Request $request)
     {
+        // Validación de los datos ingresados
         $request->validate([
             'titulo' => 'required|string|max:255',
             'autor' => 'required|string|max:255',
             'estado' => 'required|string|max:255',
         ]);
-
+        // Crear un nuevo libro en la base de datos
         Libro::create($request->all());
 
         return redirect()->route('libros.index')->with('success', 'Libro creado correctamente.');
     }
     /**
-     * Display the specified resource.
+     * Mostrar el contenido de un libro.
      */
     public function show(Libro $libro)
     {
+        // Mostrar la vista con los detalles del libro
         return view('libros.show', compact('libro'));
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Mostrar el formulario para editar el libro especificado.
      */
     public function edit(Libro $libro)
     {
+        // Retornar los datos del libro en formato JSON para la edición
         return response()->json($libro);
     }
     /**
-     * Update the specified resource in storage.
+     * Actualizar el libro especificado en almacenamiento.
      */
     public function update(Request $request, Libro $libro)
     {
+        // Validación de los datos ingresados
         $request->validate([
             'titulo' => 'required|string|max:255',
             'autor' => 'required|string|max:255',
         ]);
-
+        // Actualizar los datos del libro en la base de datos
         $libro->update($request->all());
         return redirect()->route('libros.index')->with('success', 'Libro actualizado correctamente.');
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Eliminar el libro especificado del almacenamiento.
      */
     public function destroy(Libro $libro)
     {
@@ -93,7 +87,7 @@ class LibroController extends Controller
     }
 
     /**
-     * Toggle the estado of the book (available or borrowed).
+     * Cambiar el estado del libro (disponible o prestado).
      */
     public function toggleEstado(Libro $libro)
     {

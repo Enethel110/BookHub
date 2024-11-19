@@ -7,10 +7,11 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Ejecutar las migraciones.
      */
     public function up(): void
     {
+        // Crear la tabla 'libros'
         Schema::create('libros', function (Blueprint $table) {
             $table->id();
             $table->string('titulo');
@@ -21,10 +22,11 @@ return new class extends Migration
     }
 
     /**
-     * Reverse the migrations.
+     * Revertir las migraciones.
      */
     public function down(): void
     {
+        // Eliminar la tabla 'libros' si existe
         Schema::dropIfExists('libros');
     }
 };

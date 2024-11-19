@@ -6,18 +6,23 @@ body {
 
 /* Carrusel: contenedor */
 .carousel {
-    display: flex; /* Asegura que los items se alineen en fila */
-    overflow: hidden; /* Para mostrar solo una imagen a la vez */
-    transition: transform 0.5s ease-in-out; /* Transición suave */
+    display: flex;
+    /* Asegura que los items se alineen en fila */
+    overflow: hidden;
+    /* Para mostrar solo una imagen a la vez */
+    transition: transform 0.5s ease-in-out;
+    /* Transición suave */
 }
 
 .carousel-item {
-    flex: 0 0 100%; /* Cada item ocupa el 100% del ancho */
+    flex: 0 0 100%;
+    /* Cada item ocupa el 100% del ancho */
     height: 500px;
 }
 
 .carousel-item img {
-    object-fit: cover; /* Mantiene la relación de aspecto */
+    object-fit: cover;
+    /* Mantiene la relación de aspecto */
     height: 100%;
 }
 
@@ -28,7 +33,8 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro con transparencia */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo oscuro con transparencia */
     z-index: 1;
 }
 
@@ -88,14 +94,16 @@ footer p {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.1); /* Fondo negro transparente */
+    background-color: rgba(0, 0, 0, 0.1);
+    /* Fondo negro transparente */
     z-index: 1;
     transition: background-color 0.3s ease;
 }
 
 /* Efecto al pasar el mouse sobre la tarjeta */
 .card:hover .overlay {
-    background-color: rgba(0, 0, 0, 0.5); /* Cambio de la opacidad en el hover */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Cambio de la opacidad en el hover */
 }
 
 /* Asegurarse de que el contenido dentro de la tarjeta quede encima del overlay */
@@ -103,16 +111,3 @@ footer p {
     position: relative;
     z-index: 2;
 }
-
-.alert-fixed {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1050;
-    width: 50%;
-    text-align: center;
-}
-
-
-
