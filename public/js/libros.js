@@ -43,7 +43,7 @@ document.querySelectorAll('.delete-book').forEach(button => {
         Swal.fire({
             title: '¿Estás seguro?',
             text: "Este libro será eliminado permanentemente.",
-            icon: 'warning',
+            icon: 'error',
             showCancelButton: true,
             confirmButtonText: 'Sí, eliminar',
             cancelButtonText: 'Cancelar'
@@ -63,7 +63,7 @@ document.querySelectorAll('.change-status').forEach(button => {
         Swal.fire({
             title: '¿Estás seguro?',
             text: "¿Quieres cambiar el estado de este libro?",
-            icon: 'warning',
+            icon: 'info',
             showCancelButton: true,
             confirmButtonText: 'Sí, cambiar estado',
             cancelButtonText: 'Cancelar'
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
         Swal.fire({
             title: '¿Estás seguro?',
             text: "¿Quieres guardar los cambios en este libro?",
-            icon: 'warning',
+            icon: 'info',
             showCancelButton: true,
             confirmButtonText: 'Sí, guardar',
             cancelButtonText: 'Cancelar'
@@ -121,7 +121,6 @@ document.addEventListener('DOMContentLoaded', function() {
 $(document).ready(function() {
     $('#librosTable').DataTable();
 
-    // Fetch and fill edit form
     $('.edit-book-btn').click(function() {
         const bookId = $(this).data('id');
         fetch(`/dashboard/libros/${bookId}/edit`)
@@ -136,7 +135,6 @@ $(document).ready(function() {
             .catch(error => console.error('Error:', error));
     });
 
-    // Asegúrate de que window.librosArray esté disponible
     if (window.librosArray) {
         const disponibleCount = window.librosArray.filter(libro => libro.estado === 'disponible').length;
         const prestadoCount = window.librosArray.filter(libro => libro.estado === 'prestado').length;

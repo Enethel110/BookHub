@@ -1,68 +1,74 @@
-# BookHub
-Sistema de Biblioteca con Jetstream
+# BookHub: Sistema de Biblioteca con Jetstream
 
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+**BookHub** es un proyecto desarrollado con **Laravel Jetstream** que implementa un sistema completo de gestión de biblioteca. Este sistema permite la administración de libros, la autenticación de usuarios y una variedad de funcionalidades para gestionar los libros disponibles y prestados.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Características
 
-## About Laravel
+- **Página de Inicio (Home):** Bienvenida para los usuarios con acceso al sistema.
+- **Autenticación de Usuarios:** Registro de nuevos usuarios e inicio de sesión seguro.
+- **Dashboard:** Al iniciar sesión, los usuarios acceden a un panel donde pueden:
+  - Ver un listado completo de libros.
+  - Eliminar, actualizar o modificar los detalles de los libros.
+  - Cambiar el estado de los libros entre **disponible** y **prestado**.
+  - Realizar búsquedas de libros por **autor** y **título**.
+  - Filtrar libros por su **estado**: disponibles o prestados.
+  - Visualizar un **gráfico resumen** que muestra:
+    - El total de libros en la biblioteca.
+    - Cuántos están **prestados**.
+    - Cuántos están **disponibles**.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Tecnologías Utilizadas
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **Laravel Jetstream:** Framework para el desarrollo de aplicaciones web.
+- **PHP:** Lenguaje principal del backend.
+- **MySQL:** Base de datos para almacenar los libros y la información de los usuarios.
+- **Tailwind CSS:** Para los estilos y la interfaz de usuario.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Requisitos
 
-## Learning Laravel
+Para poder ejecutar este proyecto correctamente, necesitarás tener instaladas las siguientes herramientas:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **XAMPP:** Un servidor local que incluye Apache y MySQL, necesario para ejecutar Laravel y gestionar la base de datos. [Descargar XAMPP](https://www.apachefriends.org/es/index.html)
+- **Composer:** Herramienta de gestión de dependencias para PHP. [Descargar Composer](https://getcomposer.org/)
+- **Node.js:** Necesario para instalar dependencias de frontend y ejecutar scripts de compilación. [Descargar Node.js](https://nodejs.org/)
+- **Visual Studio Code:** Un editor de código recomendado para trabajar con PHP y Laravel. [Descargar Visual Studio Code](https://code.visualstudio.com/)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Instalación
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. Clona este repositorio en tu máquina local en la ruta "C:\xampp\htdocs":
 
-## Laravel Sponsors
+   ```bash
+   https://github.com/Enethel110/BookHub.git
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+2. Accede a la carpeta del proyecto:
 
-### Premium Partners
+   cd BookHub
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+3. Instala las dependencias con **Composer**:
 
-## Contributing
+   composer install
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+4. Instalar las dependencias de Node.js
 
-## Code of Conduct
+   npm install
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+5. Configura tu archivo `.env` con las credenciales de tu base de datos.
+   
+   cp .env.example .env
 
-## Security Vulnerabilities
+6. Generar la clave de la aplicación
+   
+   php artisan key:generate
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+7. Ejecuta las migraciones para crear las tablas necesarias:
+
+   php artisan migrate
+
+8. Inicia el servidor de desarrollo:
+
+   php artisan serve
+
+9. Accede a la aplicación en `http://localhost:80`.
 
 ## License
 

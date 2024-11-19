@@ -12,22 +12,29 @@ class LibroController extends Controller
      * con paguinacion de 12 libros
      */
     public function index(Request $request)
-    {
-        $search = $request->input('search');
-        // Buscar libros por título o autor
-        if ($search) {
-            $libros = Libro::where('titulo', 'like', '%' . $search . '%')
-                ->orWhere('autor', 'like', '%' . $search . '%')
-                ->paginate(12);
-        } else {
-            // Mostrar todos los libros con paginación
-            $libros = Libro::paginate(12);
-        }
+{
+    $search = $request->input('search');
+    $estado = $request->input('estado'); // Agregamos el estado como parámetro de búsqueda
 
-
-        $librosArray = $libros->items();
-        return view('dashboard', compact('libros', 'librosArray'));
+    // Buscar libros por título, autor y estado
+    $libros = Libro::query();
+    
+    if ($search) {
+        $libros->where(function($query) use ($search) {
+            $query->where('titulo', 'like', '%' . $search . '%')
+                ->orWhere('autor', 'like', '%' . $search . '%');
+        });
     }
+
+    if ($estado) {
+        $libros->where('estado', $estado); // Filtramos por estado si está presente
+    }
+
+    $libros = $libros->paginate(12);
+
+    $librosArray = $libros->items();
+    return view('dashboard', compact('libros', 'librosArray'));
+}
 
     /**
      * Almacenar un nuevo libro en la DB.
