@@ -66,7 +66,7 @@ Para poder ejecutar este proyecto correctamente, necesitarás tener instaladas l
 
 8. Inicia el servidor de desarrollo:
 
-   php artisan serve
+   php artisan server
 
 9. Accede a la aplicación en `http://localhost:80`.
 
